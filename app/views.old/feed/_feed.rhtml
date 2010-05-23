@@ -1,0 +1,15 @@
+<li id='feed_<%= feed.id %>'>
+    <%= link_to image_tag('rss.png'), :controller => 'rss', :access_key => feed.access_key %>
+    <%= link_to_remote feed.name, {:url => {:action => 'edit', :id => feed}},
+                                  {:href => url_for(:action => 'edit', :id => feed)} %>
+    <%= link_to_remote image_tag('trash.png', :size => '10x10'),
+                                {:url => {:action => 'del', :id => feed}, :confirm => 'Are you sure?'},
+                                {:href => url_for(:action => 'del', :id => feed)}%>
+    <div id='feed_<%= feed.id %>_editor_container' style='display: none;'>
+        <div style="float: left;" id='feed_<%= feed.id %>_editor'>
+
+        </div>
+        <div style="float: left; display: none;" id="feed_<%= feed.id %>_editor_errors"></div>
+    </div>
+    <div style="clear: both"></div>
+</li>

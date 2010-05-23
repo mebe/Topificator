@@ -1,0 +1,59 @@
+body, html {
+    height: 100%;
+}
+
+img {
+    border: 0;
+}
+
+div#loginOuter {
+    height: 100%;
+    overflow: visible;
+    position: relative;
+    margin: auto;
+}
+div#loginOuter[id] {
+    display: table;
+    position: static;
+}
+
+div#loginMiddle {
+    position: absolute;
+    top: 50%;
+    right: 33%;
+    left: 33%;
+    width: 33%;
+   
+}
+div#loginMiddle[id] {
+    width: auto;
+    display: table-cell;
+    vertical-align: middle;
+    position: static;
+}
+
+div#loginInner {
+    position: relative;
+    top: -50%;
+    border: #dae5f2 2px solid;
+    padding-bottom: 5em;
+    background-color: #ECF3E1;
+    -moz-border-radius: 15px;
+}
+
+div#loginHelp {
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 4em;
+    line-height: 1em;
+}
+
+div#loginFailure {
+    border: 1px solid red;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    background-color: #f2dada;
+    margin-bottom: 1em;
+}

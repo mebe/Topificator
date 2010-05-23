@@ -1,0 +1,10 @@
+page.visual_effect :slide_up, "feed_#{@feed.id}_editor_container"
+page.replace_html "feed_#{@feed.id}_editor_errors", ''
+page.replace_html "feed_#{@feed.id}_link", @feed.name
+page.visual_effect :highlight, "feed_#{@feed.id}_links"
+page << <<END
+$('feed_#{@feed.id}_link').onclick = function() {
+  #{remote_function :url => {:action => 'edit', :id => @feed}};
+  return false;
+}
+END

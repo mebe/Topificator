@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title Topificator - Feeds
+    = javascript_include_tag 'filterlist'
+    = javascript_include_tag :defaults
+    = javascript_include_tag 'listmover'
+    = javascript_include_tag 'lightbox'
+
+    /%script{:src => url_for(:controller => 'ajax', :action => 'get_channels'), :type => 'text/javascript'}
+    = stylesheet_link_tag 'styles', :media => 'all'
+    = stylesheet_link_tag 'lightbox', :media => :all
+    = render :partial => 'head_rss_link', :collection => @user.feeds
+  %body
+    #container
+      #feedsHelp
+        = help_link :feeds
+      %div="Welcome #{@user.name}!"
+      = @content_for_layout
+      %p=link_to 'Logout', :controller => 'login', :action => 'logout'

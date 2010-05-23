@@ -1,0 +1,31 @@
+= error_messages_for :feed
+= form_remote_tag :url => {:action => :save}, :html => {'id' => 'new_feed_form'}
+  = hidden_field_tag('id', @feed.id) if @feed
+  %table
+    %tr
+      %td Feed name:
+      %td{:colspan => 3}
+        = text_field 'feed', 'name', {:style => 'width: 295px;'}
+        = help_link :editor
+    %tr
+      %td{} Channels:
+      %td{:colspan => 3, :style => 'text-align: right'}
+        = text_field_tag "filter_#{id}_field", nil, :onkeyup => "filter_#{id}.set(this.value)", :style => 'width: 9.5em;'
+    %tr
+      %td
+      %td= selection :feed
+      %td{:style => 'text-align: center'}
+          =to_button
+          %br/
+          =from_button
+      %td
+        = selection :all
+    %tr
+      %td
+      %td{:colspan => 3}
+        %div{:style => 'float: left'}
+          = check_box 'feed', 'all_channels', {:id => "disabler_for_#{id}", :onclick => "toggleChannels(#{id})", :value => 'nonchecked'}
+          %label{:for => "disabler_for_#{id}"} All channels!
+        %div{:style => 'float: right'}
+          = submit_tag @submit_button_text, :onclick => "selectAll(#{id})"
+        %div{:style => 'clear: both'}

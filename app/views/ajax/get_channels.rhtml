@@ -1,0 +1,5 @@
+var channels = new Array(<%= @channels.size %>);
+
+<% @channels.each_with_index do |channel, index| %>
+    channels[<%= index %>] = "<%= channel.name %>"
+<% end %>

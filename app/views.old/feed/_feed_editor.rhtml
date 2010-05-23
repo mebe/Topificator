@@ -1,0 +1,41 @@
+<%= error_messages_for :feed %>
+<%= form_remote_tag :url => {:action => :save}, :html => {'id' => 'new_feed_form'} %>
+
+
+    <% if @feed %>
+        <% id = @feed.id %>
+        <%= hidden_field_tag 'id', @feed.id %>
+    <% else %>
+        <% id = 0 %>
+    <% end %>
+    <% textarea = "feed_#{id}_channels" %>
+    <table>
+
+        <tr>
+            <td>Feed name:</td>
+            <td><%= text_field 'feed', 'name', {:style => 'width: 250px;'}%></td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top">Channels:</td>
+            <td>
+                <%= text_area 'feed', 'channels', {:id => textarea, :rows => 10, :style => 'width: 250px;',
+                    "#{'disabled' if @feed && @feed.all_channels?}" => ''} %>
+                <div class="auto_complete" id="<%= textarea %>_auto_complete"> </div>
+                <%= javascript_tag("new Autocompleter.Local('#{textarea}',
+                                                            '#{textarea}_auto_complete',
+                                                            channels,
+                                                            {frequency: 0.1, fullSearch: true, tokens: [',', ' ', '\\n']})") %>
+            </td>
+        </tr>
+        <tr> <td> </td>
+            <td>
+                <div style="float: left">
+                    <%= check_box 'feed', 'all_channels',
+                                  {'onclick' => "toggleDisability('#{textarea}')", 'value' => 'nonchecked'} %>
+                    <label for="feed_all_channels">All channels!</label>
+               </div>
+                <div style="float: right"><%= submit_tag @submit_button_text %></div>
+            </td>
+       </tr>
+    </table>
+</form>

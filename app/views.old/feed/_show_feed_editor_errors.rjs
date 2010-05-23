@@ -1,0 +1,2 @@
+page.replace_html @error_field, error_messages_for(:feed)
+page.visual_effect :grow, @error_field

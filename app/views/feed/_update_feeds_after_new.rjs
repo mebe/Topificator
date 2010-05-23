@@ -1,0 +1,8 @@
+page.insert_html :bottom, 'feeds_list', :partial => 'feed'
+page.hide "feed_#{@feed.id}"
+page.visual_effect :fade, 'new_feed_editor'
+page.visual_effect :appear, "feed_#{@feed.id}"
+page.form.reset 'new_feed_form'
+page.form.enable 'feed_0_channels'
+page.replace_html 'new_feed_editor_errors', ''
+page.hide 'new_feed_editor_errors'

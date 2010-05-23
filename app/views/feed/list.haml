@@ -1,0 +1,13 @@
+%h2 Your feeds:
+
+%ul{:id => 'feeds_list'}
+  = render :partial => 'feed', :collection => @user.feeds
+
+= link_to_function 'New feed', "Effect.toggle('new_feed_editor', 'slide')", :href => url_for(:action => :edit)
+
+#new_feed_editor{:style => 'display: none;'}
+  %{:style => 'float: left;'}
+    = render :partial => 'feed_editor'
+  #new_feed_editor_errors{:style => 'float: left; display: none;'}
+  = javascript_tag "mover_0 = new ChannelMover(0); filter_0 = new filterlist($('all_channels_for_0'));"
+%{:style => 'clear: both;'}

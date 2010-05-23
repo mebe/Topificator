@@ -1,0 +1,31 @@
+<%= render :partial => 'layouts/doctype' %>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' dir='ltr'>
+    <head>
+        <title>Topificator - Login</title>
+        <%= stylesheet_link_tag 'login', :media => :all %>
+        <%= stylesheet_link_tag 'lightbox', :media => :all %>
+        
+        <%= javascript_include_tag 'prototype' %>
+        <%= javascript_include_tag 'lightbox' %>
+    </head>
+    <body>
+       <div id="loginOuter">
+            <div id="loginMiddle">
+                <div id="loginInner">
+                    <div id="loginHelp">
+                        <%= link_to image_tag('question.png', :size => '18x18'),
+                            {:controller => 'help', :action => :login}, :class => 'lbOn' %>
+                    </div>
+                    <%= form_tag :action => :login %>
+                    <div style="text-align: center;">
+                        Name <%= text_field_tag 'name', '', :size => 20, :style => 'text-align: right;'%>
+                        <%= password_field_tag 'pass', '', :size => 20 %> Pass
+                        <br />
+                        <%= submit_tag 'Login' %>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %title=h "Topic of #{@topic.channel.name}"
+  %body
+    %p
+      =h @topic.user
+      changed the topic of
+      =h @topic.channel.name
+      to
+      = @topic.topic_parsed

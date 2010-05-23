@@ -1,0 +1,17 @@
+page.replace_html "feed_#{@feed.id}_editor", :partial => 'feed_editor'
+page.visual_effect :toggle_blind, "feed_#{@feed.id}_editor_container"
+page.call 'initialize'
+page.call 'toggleChannels', @feed.id
+page << <<END
+filter_#{@feed.id} = new filterlist($('all_channels_for_#{@feed.id}'));
+mover_#{@feed.id} = new ChannelMover(#{@feed.id});
+
+$('feed_#{@feed.id}_link').onclick = function() {
+  Effect.toggle('feed_#{@feed.id}_editor_container','blind',{});
+  $('feed_#{@feed.id}_link').onclick = function() {
+    #{remote_function :url => {:action => 'edit', :id => @feed}};
+    return false;
+  }
+  return false;
+}
+END

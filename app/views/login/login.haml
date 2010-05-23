@@ -1,0 +1,28 @@
+- unless @request.env['HTTP_USER_AGENT'].downcase.index('msie')
+  !!!
+%html
+  %head
+    %title Topificator - Login
+    = stylesheet_link_tag 'login', :media => :all
+    = stylesheet_link_tag 'lightbox', :media => :all
+        
+    = javascript_include_tag 'prototype'
+    = javascript_include_tag 'lightbox'
+  %body
+    #loginOuter
+      #loginMiddle
+        #loginInner
+          #loginHelp
+            = help_link :login
+          %div{:style => 'text-align: center;'}
+            - if @flash[:login]
+              #loginFailure=@flash[:login]
+          
+            = form_tag :action => :login
+              Name
+              = text_field_tag 'name', '', :size => 20, :style => 'text-align: right;'
+              = password_field_tag 'pass', '', :size => 20
+              Pass
+              %br/
+              = submit_tag 'Login'
+            = end_form_tag

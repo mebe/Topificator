@@ -1,0 +1,2 @@
+page.replace_html "feed_#{@feed.id}_editor", :partial => 'feed_editor'
+page.visual_effect :toggle_slide, "feed_#{@feed.id}_editor_container"

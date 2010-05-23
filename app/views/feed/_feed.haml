@@ -1,0 +1,9 @@
+%li[feed]
+  %span{:id => "feed_#{feed.id}_links"}
+    = link_to image_tag('rss.png', :size => '15x15', :style => 'margin-right: 1em;'), :controller => 'rss', :access_key => feed.access_key
+    = link_to_remote image_tag('trash.png', :size => '10x10', :style => 'margin-right: 1em;'), {:url => {:action => 'del', :id => feed}, :confirm => "Are you sure you want to delete '#{feed.name}'?"}, {:href => url_for(:action => 'del', :id => feed)}
+    = link_to_remote feed.name, {:url => {:action => 'edit', :id => feed}}, {:href => url_for(:action => 'edit', :id => feed), :id => "feed_#{feed.id}_link"}
+  %div{:id => "feed_#{feed.id}_editor_container", :style => 'display: none;'}
+    %div{:id => "feed_#{feed.id}_editor", :style => 'float: left;'}
+    %div{:id => "feed_#{feed.id}_editor_errors", :style => 'float: left; display: none;'}
+    %div{:style => 'clear: both'}

@@ -1,0 +1,57 @@
+div#container {
+    background-color: #ECF3E1;
+    width: 90%;
+    margin: auto;
+    border: #dae5f2 2px solid;
+    -moz-border-radius: 15px;
+    padding: 1em;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+div#feedsHelp {
+    float: right;
+}
+
+.fieldWithErrors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+
+#errorExplanation {
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: #c00;
+    color: #fff;
+}
+
+#errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
+#errorExplanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+
+ul#feeds_list {
+    list-style: none;
+}

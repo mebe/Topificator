@@ -1,0 +1,16 @@
+body {
+    font-size: 10pt;
+    background-color: #dae5f2;
+    font-family: verdana;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+h1 {
+    display: inline;
+    font-size: 12pt;
+    font-variant: small-caps;
+}
